@@ -1,0 +1,63 @@
+<head>
+  <title>MyLinks</title>
+</head>
+
+<body>
+  {{> header }}
+  {{> link_list }}
+  {{> add_new_link }}
+</body>
+
+<template name="header">
+
+  <h1>My Links - Els millors enlla&ccedil;os de la web</h1>
+
+  <p>Actualment hi han {{collection_size}} enlla&ccedil;os.</p>
+
+</template>
+
+<template name="link_list">
+
+  <ul>
+
+    {{#each links }}
+
+      <li> {{> link_detail }} </li>
+
+    {{/each }}
+
+  </ul>
+
+</template>
+
+<template name="link_detail">
+
+  <div id="link-{{id}}">
+
+    <h3><A HREF="http://{{url}}">{{url}}</A></h3>
+
+    <p><strong>Posici&oacute;:</strong>  
+        M'agrada: {{thumbs_up}} No m'agrada: {{thumbs_down}} 
+        Resultat global: {{score}}</p>
+
+    <input type="button" value="M'agrada" 
+          class="thumbs_up" />
+    <input type="button" value="No m'agrada" 
+          class="thumbs_down"
+					/>
+
+  </div>
+
+</template>
+
+<template name="add_new_link">
+	<h2>Afegeix una URL</h2>
+
+  <div id="new_link_form">
+
+    URL: <input id="url">
+    <input type="button" value="Afegir" id="add_url" />
+
+  </div>
+
+</template>
