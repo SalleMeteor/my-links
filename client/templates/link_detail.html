@@ -1,0 +1,14 @@
+<template name="link_detail">
+  <div id="link-{{id}}">
+    <h3><A HREF="http://{{url}}">{{url}}</A></h3>
+    <p><strong>Posici&oacute;:</strong>  
+        M'agrada: {{thumbs_up}} No m'agrada: {{thumbs_down}} 
+        Resultat global: {{score}}</p>
+    <input type="button" value="M'agrada" 
+          class="thumbs_up" />
+    <input type="button" value="No m'agrada" 
+          class="thumbs_down"
+					/>
+  </div>
+</template>
+

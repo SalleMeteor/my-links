@@ -3,8 +3,13 @@
 </head>
 
 <body>
+  
+</body>
+
+<template name="home">
   {{> loginButtons }}
-  {{> header }}
+  <h1>My Links - Els millors enlla&ccedil;os de la web</h1>
+  <p>Actualment hi han {{collection_size}} enlla&ccedil;os.</p>
   {{#if currentUser}}
     {{> add_new_link }}
     {{> link_list }}
@@ -12,56 +17,9 @@
   {{else}}
     {{> loginplease }}
   {{/if}}
-
-</body>
-
-
-<template name="loginplease">
-  <h2>No has accedit. Siusplau fes login.</h2>
-  <a href="{{pathFor 'about'}}">Sobre mylinks</a>
 </template>
 
-<template name="chatTemplate">
-  <h2>Mur de comentaris:</h2>
-    <div name="chat" style="border: 1px solid; padding: 10px; overflow-y: scroll; height: 250px ; background-color:white">
-      {{#each messages}}<pre>{{userName}}: {{message}}</pre>{{/each}}
-    </div>
-  <form>
-  	<p>Comenta un enlla&ccedil;:        <input id="chatInput" size="60"/><input type="submit" value="Comentar" /></p>
-  </form>
-</template>
 
-<template name="header">
-  <h1>My Links - Els millors enlla&ccedil;os de la web</h1>
-  <p>Actualment hi han {{collection_size}} enlla&ccedil;os.</p>
-</template>
 
-<template name="link_list">
-  <ul>
-    {{#each links }}
-      <li> {{> link_detail }} </li>
-    {{/each }}
-  </ul>
-</template>
 
-<template name="link_detail">
-  <div id="link-{{id}}">
-    <h3><A HREF="http://{{url}}">{{url}}</A></h3>
-    <p><strong>Posici&oacute;:</strong>  
-        M'agrada: {{thumbs_up}} No m'agrada: {{thumbs_down}} 
-        Resultat global: {{score}}</p>
-    <input type="button" value="M'agrada" 
-          class="thumbs_up" />
-    <input type="button" value="No m'agrada" 
-          class="thumbs_down"
-					/>
-  </div>
-</template>
 
-<template name="add_new_link">
-	<h2>Afegeix una URL</h2>
-  <div id="new_link_form">
-    URL: <input id="url">
-    <input type="button" value="Afegir" id="add_url" />
-  </div>
-</template>
